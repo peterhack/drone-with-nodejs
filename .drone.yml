@@ -6,14 +6,14 @@ pipeline:
       - npm test
   publish:
     image: plugins/docker
-    repo: luisredda/node-demo
+    repo: peterhack/node-demo
     username:
       from_secret: u_docker
     password: 
       from_secret: p_docker
     dry_run: true # remove this to publish.
   harness deploy:
-    image: luisredda/drone-harness-plugin
+    image: peterhack/drone-harness-plugin
     settings:  
     application: "Harness Demo Application"
     type: "PIPELINE"
@@ -43,4 +43,4 @@ pipeline:
         }}  ]
     when:
       repo:
-      - luisredda/drone-with-nodejs
+      - peterhack/drone-with-nodejs

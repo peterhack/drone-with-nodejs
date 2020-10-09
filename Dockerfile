@@ -1,6 +1,8 @@
-FROM node:9-alpine
-WORKDIR /usr/src/app
-ADD server.js .
-ADD node_modules node_modules
-EXPOSE 3000
-CMD [ "node", "server.js" ]
+FROM python:3.7.5-slim
+
+COPY . /app
+WORKDIR /app
+RUN pip install requests
+
+ENTRYPOINT ["python"]
+CMD ["app.py"]
